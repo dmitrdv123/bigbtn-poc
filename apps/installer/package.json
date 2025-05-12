@@ -1,0 +1,35 @@
+{
+  "name": "@repo/installer",
+  "version": "1.0.0",
+  "description": "",
+  "bin": {
+    "cdk": "bin/cdk.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "lint": "eslint . --ext .ts",
+    "test": "jest",
+    "cdk": "cdk",
+    "deploy": "cdk deploy --require-approval never",
+    "destroy": "cdk destroy --force"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-cloudformation": "^3.635.0",
+    "aws-cdk": "2.153.0",
+    "aws-cdk-lib": "2.153.0",
+    "constructs": "^10.3.0",
+    "dotenv": "^16.4.4",
+    "source-map-support": "^0.5.21"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^22.15.3",
+    "eslint": "^9.26.0",
+    "typescript": "5.8.2"
+  }
+}
