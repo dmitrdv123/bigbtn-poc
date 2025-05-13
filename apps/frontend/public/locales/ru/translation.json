@@ -1,0 +1,27 @@
+{
+  "pages": {
+    "home": {
+      "title": "Добро пожаловать!"
+    },
+    "chat": {
+      "title": "Добро пожаловать!"
+    }
+  },
+  "components": {
+    "search_bar": {
+      "desc": "Что бы вы хотели купить сегодня?",
+      "button": "Поиск",
+      "engine_chatgpt": "ChatGPT",
+      "engine_grok": "Grok",
+      "engine_gemini": "Gemini"
+    },
+    "app_navbar": {
+      "language": "Язык",
+      "logout_btn": "Выйти"
+    }
+  },
+  "services": {},
+  "common": {
+    "errors": {}
+  }
+}

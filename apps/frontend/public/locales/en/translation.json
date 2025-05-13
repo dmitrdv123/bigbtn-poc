@@ -1,0 +1,27 @@
+{
+  "pages": {
+    "home": {
+      "title": "Welcome!"
+    },
+    "chat": {
+      "title": "Welcome!"
+    }
+  },
+  "components": {
+    "search_bar": {
+      "desc": "What would you like to buy today?",
+      "button": "Search",
+      "engine_chatgpt": "ChatGPT",
+      "engine_grok": "Grok",
+      "engine_gemini": "Gemini"
+    },
+    "app_navbar": {
+      "language": "Language",
+      "logout_btn": "Logout"
+    }
+  },
+  "services": {},
+  "common": {
+    "errors": {}
+  }
+}
