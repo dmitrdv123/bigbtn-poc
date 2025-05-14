@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Container, Row, Col, Offcanvas, Button } from 'react-bootstrap'
-import { ChevronRight } from 'react-bootstrap-icons'
+import { Card, Container, Row, Col, Offcanvas, Button } from 'react-bootstrap'
+import { ChevronRight, Star, StarFill } from 'react-bootstrap-icons'
 import { useTranslation } from 'react-i18next'
 
 import SearchBar from '../../components/SearchBar'
@@ -14,40 +14,68 @@ const Chat: React.FC = () => {
   const handleClose = () => setShowSidebar(false)
   const handleShow = () => setShowSidebar(true)
 
+  const renderStars = (score: number) => {
+    const stars = [];
+    const maxStars = 5;
+    for (let i = 1; i <= maxStars; i++) {
+      stars.push(
+        <StarFill
+          key={i}
+          className={i <= score ? 'text-warning' : 'text-muted'}
+          aria-label={i <= score ? 'Filled star' : 'Empty star'}
+        />
+      );
+    }
+    return stars;
+  };
+
   return (
     <div className="d-flex flex-column vh-100">
       <AppNavbar />
 
-      <Button variant="outline-secondary"
-        className="m-2 d-md-none align-self-end"
+      <Button
+        variant="outline-secondary"
+        className="m-2 d-lg-none align-self-end"
         onClick={handleShow}
       >
         <ChevronRight />
       </Button>
 
-      <Container fluid className="d-flex flex-grow-1">
-        <Row className="flex-grow-1 w-100">
-          {/* Main content */}
-          <Col xs={12} md={9} className="d-flex flex-column">
-            <h1 className="text-center display-1">
-              {t('pages.chat.title')}
-            </h1>
-            <div className="mt-auto">
-              <SearchBar />
+      <div className="flex-grow-1 d-flex overflow-hidden">
+        <div className="flex-grow-1 d-flex flex-column">
+          <div className="flex-grow-1 overflow-auto p-3">
+            <div className="row">
+              {Array.from({ length: 15 }).map((_, index) => (
+                <div className=" mb-3" key={index}>
+                  <div className="card">
+                    <div className="card-body">
+                      <h5 className="card-title">Product {index + 1}</h5>
+                      <p className="card-text">This is a sample product card.</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-          </Col>
+          </div>
 
-          <Col md={3} className="d-none d-md-block border-start">
+          <div className="mt-auto p-2">
+            <SearchBar />
+          </div>
+        </div>
+
+        <div className="history-sidebar overflow-auto border-start d-none d-lg-block">
+          <div className="p-3">
             <HistorySidebar />
-          </Col>
-        </Row>
-      </Container>
+          </div>
+        </div>
+      </div>
 
       <Offcanvas show={showSidebar} onHide={handleClose} placement="end">
-        <Offcanvas.Header closeButton>
-        </Offcanvas.Header>
+        <Offcanvas.Header closeButton />
         <Offcanvas.Body>
-          <HistorySidebar />
+          <div className="p-3">
+            <HistorySidebar />
+          </div>
         </Offcanvas.Body>
       </Offcanvas>
     </div>

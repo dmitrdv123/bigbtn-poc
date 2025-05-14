@@ -17,12 +17,12 @@ const SearchBar: React.FC = () => {
       </Form.Group>
 
       <div className="d-flex align-items-center gap-2 mb-2">
-        <Button variant="primary" className="btn-lg" href="#">
+        <Button variant="primary" href="#">
           {t('components.search_bar.button')}
         </Button>
 
         <Dropdown>
-          <Dropdown.Toggle variant="outline-secondar">
+          <Dropdown.Toggle variant="outline-secondary">
             ChatGPT
           </Dropdown.Toggle>
           <Dropdown.Menu>
