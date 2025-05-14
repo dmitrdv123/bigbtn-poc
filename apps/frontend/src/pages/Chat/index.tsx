@@ -42,20 +42,22 @@ const Chat: React.FC = () => {
       </Button>
 
       <div className="flex-grow-1 d-flex overflow-hidden">
-        <div className="flex-grow-1 d-flex flex-column">
+        <div className="flex-grow-1 d-flex flex-column" style={{ minWidth: 0 }}>
           <div className="flex-grow-1 overflow-auto p-3">
-            <div className="row">
-              {Array.from({ length: 15 }).map((_, index) => (
-                <div className=" mb-3" key={index}>
-                  <div className="card">
-                    <div className="card-body">
-                      <h5 className="card-title">Product {index + 1}</h5>
-                      <p className="card-text">This is a sample product card.</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <Container fluid>
+              <Row>
+                {Array.from({ length: 15 }).map((_, index) => (
+                  <Col xs={12} md={6} xl={4} className="mb-3" key={index}>
+                    <Card>
+                      <Card.Body>
+                        <Card.Title>Product {index + 1}</Card.Title>
+                        <Card.Text>This is a sample product card.</Card.Text>
+                      </Card.Body>
+                    </Card>
+                  </Col>
+                ))}
+              </Row>
+            </Container>
           </div>
 
           <div className="mt-auto p-2">
