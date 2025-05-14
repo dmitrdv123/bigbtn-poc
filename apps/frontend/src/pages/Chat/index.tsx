@@ -1,11 +1,21 @@
 import React, { useState } from 'react'
-import { Card, Container, Row, Col, Offcanvas, Button } from 'react-bootstrap'
-import { ChevronRight, Star, StarFill } from 'react-bootstrap-icons'
+import { Container, Row, Col, Offcanvas, Button } from 'react-bootstrap'
+import { ChevronRight } from 'react-bootstrap-icons'
 import { useTranslation } from 'react-i18next'
 
 import SearchBar from '../../components/SearchBar'
 import AppNavbar from '../../components/AppNavbar'
 import HistorySidebar from '../../components/HistorySidebar'
+import ProductCard from '../../components/ProductCard'
+
+const SAMPLE_PRODUCTS = Array.from({ length: 15 }, (_, index) => ({
+  id: index + 1,
+  name: `Product ${index + 1}`,
+  description: 'This is a sample product with a detailed description that showcases its features and benefits.',
+  price: 29.99 + index * 10,
+  score: Math.min(5, Math.ceil(Math.random() * 5)),
+  imageUrl: `https://images.pexels.com/photos/${1000 + index}/pexels-photo-${1000 + index}.jpeg`
+}))
 
 const Chat: React.FC = () => {
   const { t } = useTranslation()
@@ -13,21 +23,6 @@ const Chat: React.FC = () => {
 
   const handleClose = () => setShowSidebar(false)
   const handleShow = () => setShowSidebar(true)
-
-  const renderStars = (score: number) => {
-    const stars = [];
-    const maxStars = 5;
-    for (let i = 1; i <= maxStars; i++) {
-      stars.push(
-        <StarFill
-          key={i}
-          className={i <= score ? 'text-warning' : 'text-muted'}
-          aria-label={i <= score ? 'Filled star' : 'Empty star'}
-        />
-      );
-    }
-    return stars;
-  };
 
   return (
     <div className="d-flex flex-column vh-100">
@@ -46,14 +41,15 @@ const Chat: React.FC = () => {
           <div className="flex-grow-1 overflow-auto p-3">
             <Container fluid>
               <Row>
-                {Array.from({ length: 15 }).map((_, index) => (
-                  <Col xs={12} md={6} xl={4} className="mb-3" key={index}>
-                    <Card>
-                      <Card.Body>
-                        <Card.Title>Product {index + 1}</Card.Title>
-                        <Card.Text>This is a sample product card.</Card.Text>
-                      </Card.Body>
-                    </Card>
+                {SAMPLE_PRODUCTS.map((product) => (
+                  <Col xs={12} md={6} xl={4} className="mb-3" key={product.id}>
+                    <ProductCard
+                      name={product.name}
+                      description={product.description}
+                      price={product.price}
+                      score={product.score}
+                      imageUrl={product.imageUrl}
+                    />
                   </Col>
                 ))}
               </Row>
