@@ -14,7 +14,23 @@ const SAMPLE_PRODUCTS = Array.from({ length: 15 }, (_, index) => ({
   description: 'This is a sample product with a detailed description that showcases its features and benefits.',
   price: 29.99 + index * 10,
   score: Math.min(5, Math.ceil(Math.random() * 5)),
-  imageUrl: `https://images.pexels.com/photos/${1000 + index}/pexels-photo-${1000 + index}.jpeg`
+  imageUrl: [
+    'https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg',
+    'https://images.pexels.com/photos/163143/laptop-computer-notebook-mouse-163143.jpeg',
+    'https://images.pexels.com/photos/205926/pexels-photo-205926.jpeg',
+    'https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg',
+    'https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg',
+    'https://images.pexels.com/photos/325153/pexels-photo-325153.jpeg',
+    'https://images.pexels.com/photos/1298601/pexels-photo-1298601.jpeg',
+    'https://images.pexels.com/photos/577769/pexels-photo-577769.jpeg',
+    'https://images.pexels.com/photos/51383/photo-camera-subject-photographer-51383.jpeg',
+    'https://images.pexels.com/photos/1649771/pexels-photo-1649771.jpeg',
+    'https://images.pexels.com/photos/1034812/pexels-photo-1034812.jpeg',
+    'https://images.pexels.com/photos/2115257/pexels-photo-2115257.jpeg',
+    'https://images.pexels.com/photos/3780681/pexels-photo-3780681.jpeg',
+    'https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg',
+    'https://images.pexels.com/photos/1841841/pexels-photo-1841841.jpeg'
+  ][index]
 }))
 
 const Chat: React.FC = () => {
